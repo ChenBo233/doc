@@ -1,1 +1,4 @@
-
+nginx配置文件地址  /etc/nginx/nginx.conf
+		   /usr/local/nginx/conf/nginx.conf
+whereis nginx 查看nginx安装和配置路径
+nginx -s reload重启nginx
