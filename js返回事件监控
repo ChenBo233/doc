@@ -1,0 +1,15 @@
+h5控制返回事件
+1.绑定popstate事件，当浏览器活动历史记录条目更改时，将触发popstate事件
+2.添加一条历史状态（并不会立即渲染该页面），当执行返回时会返回到当前页面的历史状态，并会触发popstate事件，而不会返回上一页
+  code:
+    history.pushState('','',location.href+'&backpage=1');
+  这会导致一个问题，当进入下一个页面返回的时候也会触发popstate事件。
+  为了解决这个问题我在pushstate的时候在push的路径后面带上backpage,带有backpage的路径就说明这是一个可以触发popastate事件的页面.
+  然后我们在跳转其他页面之前push一个新的不带backpage的state，这样从新页面返回的时候跳转到的将是最后push的不带backpage的路径，
+  检测到没有backpage则不触发popstate事件
+            window.addEventListener("popstate", function(e) {
+                console.log(M.util.getParam('backpage'))
+                if(!M.util.getParam('backpage')){
+                    g_main.closeView();
+                }
+            }, false);
