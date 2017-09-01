@@ -9,7 +9,7 @@
 
 ## vuejs ui 库: ##
 
-1. weex 移动端
+1. mint-ui 移动端
 2. element 饿了么PC端
 3. iview PC端
 
