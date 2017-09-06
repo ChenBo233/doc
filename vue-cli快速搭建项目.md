@@ -17,3 +17,6 @@
 
 1. axios
 2. resource
+
+## 安装插件 ##
+npm i name -s(写入配置文件)
