@@ -20,3 +20,14 @@
 
 ## 安装插件 ##
 npm i name -s(写入配置文件)
+
+## 重定向接口 ##
+    proxyTable: {
+      '/api': {
+        'target': 'http://correct.qingnianjuhe.com/rest/2.0/',
+        'changeOrigin': true,
+        'pathRewrite': {
+          '^/api': ''
+        }
+      }
+    },
