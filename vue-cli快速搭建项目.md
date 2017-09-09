@@ -22,7 +22,8 @@
 npm i name -s(写入配置文件)
 
 ## 重定向接口 ##
-    proxyTable: {
+------配置文件里面设置config/index.js
+    proxyTable: {
       '/api': {
         'target': 'http://correct.qingnianjuhe.com/rest/2.0/',
         'changeOrigin': true,
