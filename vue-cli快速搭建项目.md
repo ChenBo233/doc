@@ -19,10 +19,10 @@
 2. resource
 
 ## 安装插件 ##
-npm i name -s(写入配置文件)
+npm i name --save(写入配置文件)
 
 ## 重定向接口 ##
-------配置文件里面设置config/index.js
+------/config/index.js配置文件里面设置
     proxyTable: {
       '/api': {
         'target': 'http://correct.qingnianjuhe.com/rest/2.0/',
@@ -32,3 +32,10 @@ npm i name -s(写入配置文件)
         }
       }
     },
+    
+## mock假数据调试 ##
+方法一：使用express搭建静态服务（只能用get请求获取数据）
+1. 根目录下创建mock文件夹存放数据json文件
+2. /build/dev-server.js文件里面添加如下配置，开启静态服务
+   app.use('/mock', express.static('./mock'))
+方法二：使用 JSON Server 搭建 Mock 服务器（没用过）
