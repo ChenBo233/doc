@@ -39,3 +39,36 @@ npm i name --save(写入配置文件)
 2. /build/dev-server.js文件里面添加如下配置，开启静态服务
    app.use('/mock', express.static('./mock'))
 方法二：使用 JSON Server 搭建 Mock 服务器（没用过）
+
+## 页面缓存 ##
+方法一：增加 router.meta 属性
+// routes 配置
+export default [
+  {
+    path: '/',
+    name: 'home',
+    component: Home,
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
+  }, {
+    path: '/:id',
+    name: 'edit',
+    component: Edit,
+    meta: {
+      keepAlive: false // 不需要被缓存
+    }
+  }
+]
+
+<keep-alive>
+    <router-view v-if="$route.meta.keepAlive">
+        <!-- 这里是会被缓存的视图组件，比如 Home！ -->
+    </router-view>
+</keep-alive>
+
+<router-view v-if="!$route.meta.keepAlive">
+    <!-- 这里是不被缓存的视图组件，比如 Edit！ -->
+</router-view>
+
+
