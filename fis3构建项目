@@ -1,0 +1,55 @@
+fis3 构建项目
+
+fis同级目录下
+fis-conf.js
+
+// default settings. fis3 release
+fis.media('dev')
+	.match('**', {
+		release: '$0',
+		useHash: true
+	});
+
+
+// fis3 release production
+fis.media('production').match('**', {
+		release: '$0',
+	}).match('*.{js,css}', {
+		useHash: true
+	})
+	.match('*.js', {
+		optimizer: fis.plugin('uglify-js')
+	})
+	.match('*.{css,scss}', {
+		optimizer: fis.plugin('clean-css')
+	})
+	.match('*.png', {
+		optimizer: fis.plugin('png-compressor')
+	})
+	.match('*.html', {
+		optimizer: fis.plugin('html-strip')
+	});
+
+package.json
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "项目名",
+  "main": "app.js",
+  "scripts": {
+    "test": "fis3 release production -r ./fis -d ./debug/",
+    "start": "fis3 release production -r ./fis -d ./htdocs/"
+  },
+  "author": "author",
+  "license": "ISC",
+  "dependencies": {
+    "fis-optimizer-html-strip": "^0.1.1",
+    "fis-parser-less": "^0.1.3",
+    "fis-postprocessor-jswrapper": "0.0.14",
+    "fis-spriter-csssprites": "^0.3.11",
+    "fis3-hook-amd": "^0.1.18",
+    "fis3-postpackager-loader": "^1.5.2"
+  }
+}
+
+npm test npm start
