@@ -70,5 +70,7 @@ export default [
 <router-view v-if="!$route.meta.keepAlive">
     <!-- 这里是不被缓存的视图组件，比如 Edit！ -->
 </router-view>
+## vue富文本编辑器 ##
+vue-quill-editor
 
 
