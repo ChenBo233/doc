@@ -14,7 +14,9 @@
      import '../../static/UE/ueditor.parse.min.js';
 
 ## 3.开发组件 ##
+
 创建组件：src/components/UEditor.vue
+
      <template>
        <div>
          <script id="editor" type="text/plain"></script>
