@@ -1,0 +1,14 @@
+function spherePointPicking(R){
+      //How to generate random points on a sphere:
+      //https://math.stackexchange.com/questions/1585975/how-to-generate-random-points-on-a-sphere#1586185
+      var u1 = Math.random();
+      var u2 = Math.random();
+      var s = Math.acos(2*u1 - 1) - Math.PI/2;// = -π/2 ~ π/2
+      var t = 2*Math.PI*u2; // = 0 ~ 2π
+
+      return {
+          x : R * Math.cos(s) * Math.cos(t),
+          y : R * Math.cos(s) * Math.sin(t),
+          z : R * Math.sin(s)
+      }
+  }
