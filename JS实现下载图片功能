@@ -1,0 +1,37 @@
+JS实现下载图片功能
+1.依赖a标签的download属性，当download属性不为空时，点击a链接将会把src指向的内容下载下来，当src指向网络内容时失效。
+2.如果要下载的内容为网络图片时，先将网络图片利用canvas转成base64编码，再将base64赋给a标签的src，触发a链接的点击事件，实现图片的下载功能
+3.具体代码如下：
+        function downImage(src, downname, outputFormat) {
+            var img = new Image();
+            img.src = src;
+            img.onload = function (e) {
+                convertImgToBase64(img.src, function (imgbase64) {
+
+                    var a = document.createElement('a');
+                    var event = new MouseEvent('click');
+
+                    a.download = downname || '下载图片名称';
+                    a.href = imgbase64;
+
+                    a.dispatchEvent(event)
+                }, outputFormat);
+            }
+        }
+
+        function convertImgToBase64(url, callback, outputFormat){
+            var canvas = document.createElement('CANVAS'),
+                ctx = canvas.getContext('2d'),
+                img = new Image;
+            img.crossOrigin = 'Anonymous';
+            img.onload = function(e){
+                canvas.height = img.height;
+                canvas.width = img.width;
+                ctx.drawImage(img,0,0);
+                console.log(img, e);
+                var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+                callback(dataURL);
+                canvas = null;
+            };
+            img.src = url;
+        }
