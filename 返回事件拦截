@@ -1,0 +1,10 @@
+
+        //监控返回事件，第一次返回的时候弹出提示--延时绑定能防止某些手机进入页面立即触发事件--ios滑动返回时会导致页面暂时无法点击
+        if (window.history && window.history.pushState) {
+            setTimeout(() => {
+                history.pushState(null, null, location.href);
+                window.addEventListener('popstate', dosomething, false);
+            }, 500);
+        }
+        //销毁
+        window.removeEventListener('popstate', dosomething, false);
