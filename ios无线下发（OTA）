@@ -1,0 +1,35 @@
+<a href="itms-services://?action=download-manifest&url=xxx.xxx.com/info.plist">Download</a><?xml version="1.0" encoding="UTF-8"?>
+
+---info.plist---
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>items</key>
+    <array>
+        <dict>
+            <key>assets</key>
+            <array>
+                <dict>
+                    <key>kind</key>
+                    <string>software-package</string>
+                    <key>url</key>
+                    <string>https://video.7daichina.com/QiDaiPartner-1.ipa</string>
+                </dict>
+            </array>
+            <key>metadata</key>
+            <dict>
+                <key>bundle-identifier</key>
+                <string>com.7daichina.sevend</string>
+                <key>bundle-version</key>
+                <string>4.8.4</string>
+                <key>kind</key>
+                <string>software</string>
+                <key>releaseNotes</key>
+                <string>123456789</string>
+                <key>title</key>
+                <string>期待合伙人</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
